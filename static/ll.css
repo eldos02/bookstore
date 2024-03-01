@@ -1,0 +1,175 @@
+.header {
+  background-color: hsl(0, 0%, 95%);
+  padding: 0;
+  display: flex;
+  top: 0;
+
+  justify-content: space-between;
+
+}
+.MainHead{
+  padding: 0px;
+  padding-bottom: 3px;
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+.MainHead.transparent{
+  opacity: 0.7;
+}
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  text-align: left;
+  flex-grow: 1;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.header-right a {
+  float: right;
+  color: #df27dc;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+.header-right a:hover {
+  background-color: #ddd;
+  color: #333;
+}
+nav{
+  margin-bottom: 20px;
+}
+
+nav ul {
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  background-color: #e9e9e9;
+  text-align: center;
+}
+
+nav li {
+
+  display: inline-block;
+  position: relative;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+nav a {
+  display: block;
+  padding: 10px 20px;
+  color: #a545c0;
+  text-decoration: none;
+}
+
+nav ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #56205a;
+  padding: 0;
+}
+nav ul li{
+  margin-left: 30px ;
+}
+
+
+
+
+nav ul ul a {
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+nav li:hover>ul {
+  display: block;
+}
+.search-box {
+
+  transition: border-color 0.5s ease-in-out, border-width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+  display: flex;
+  margin-right: 30%;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  border-color: #813096;
+}
+.search-box input[type="text"]:focus {
+
+  outline: none;
+  border: none;
+}
+.search-box button:active {
+  border-color: #f1f1f1;
+  outline: none;
+  border: none;
+}
+.search-box:hover {
+  border-color: rgb(193, 44, 188);
+  border-width: 3px;
+}
+
+
+/*search*/
+form input[type="text"] {
+
+  color: #c424c6; /* цвет текста */
+  background-color: #fff; /* цвет фона */
+}
+/* это чтобы изменить цвет поисковика */
+form input {
+  border-color: white;
+}
+
+form {
+  display: flex;
+  align-items: center;
+}
+
+input[type="text"] {
+  padding: 5px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+}
+/*underlini pod zhanr*/
+.underline-on-hover {
+  position: relative;
+  cursor: pointer;
+}
+
+.underline-on-hover::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(186, 116, 198);
+  transform: scaleX(0);
+  transition: transform 0.2s ease-in-out;
+}
+.underline-on-hover:hover::before {
+  transform: scaleX(1);
+}
+.borderBooks{
+  padding-top: 100px;
+}
+#imageBooks{
+  height: auto;
+  width: 100%;
+}

@@ -1,0 +1,37 @@
+
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="borderBooks">
+        <table>
+          <tr>
+            <td>
+                <img src="{% static 'sd.jpeg' %}" alt="Image description" width="100%">
+            </td>
+
+          </tr>
+          </table>
+      </div>
+    <div class="container">
+
+        <ul class="books-list">
+            <div class="row" style="">
+              {% for book in books %}
+              <div class="col-md-4 mb-5 p-5"style="">
+                <div class="card h-100" style=>
+                  <img src="{{ book.photo.url }}" class="card-img-top" alt="{{ book.title }}" >
+                  <div class="card-body">
+                    <h5 class="card-title">{{ book.title }}</h5>
+                    <p class="card-text"><small class="text-muted">{{ book.author }}, {{ book.year }}</small></p>
+                    <p class="card-text"><small class="text-muted">{{ book.genre }}</small></p>
+                    <p class="card-text"><strong>Price:</strong> ${{ book.price }}</p>
+                    <a href="{% url 'book_details' book.id %}" class="btn btn-primary">View Details</a>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+
+        </ul>
+    </div>
+{% endblock content %}

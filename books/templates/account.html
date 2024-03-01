@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto my-4">
+                <br>
+                <br>
+                <br>
+                <h1 class="mb-4">Account</h1>
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ user_form.as_p }}
+                    {{ form.as_p }}
+                    {% if user.userprofile.avatar %}
+                        <img style="width: 300px;" src="{{ user.userprofile.avatar.url }}" alt="Avatar" class="my-3">
+                    {% endif %}
+                    <br>
+                    <button type="submit" class="btn btn-primary">Update Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}

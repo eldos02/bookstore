@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IMDb</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+                <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+        <lord-icon
+        src="https://cdn.lordicon.com/wxnxiano.json"
+        trigger="morph"
+        colors="primary:#6c16c7,secondary:#121331"
+        style="width:50px;height:50px">
+        </lord-icon>
+            <a class="navbar-brand" href="{% url 'home' %}">Book Store</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <form class="search-form" action="{% url 'search_books' %}" method="GET">
+            <div class="input-group">
+                <input type="text" class="form-control" name="search_query" placeholder="Search by book title">
+                <button type="submit" class="btn btn-primary"><script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+    <lord-icon
+    src="https://cdn.lordicon.com/msoeawqm.json"
+    trigger="click"
+    colors="primary:#121331,secondary:#8930e8"
+    stroke="95"
+    style="width:25px;height:25px">
+    </lord-icon></button>
+            </div>
+        </form>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'cart' %}"><script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+              <lord-icon
+              src="https://cdn.lordicon.com/dnoiydox.json"
+              trigger="hover"
+              colors="primary:#121331,secondary:#6c16c7"
+              style="width:50px;height:50px">
+              </lord-icon></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account' %}">Account</a>
+                    </li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                        </li>
+                        {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <ul class="genres-list" style="z-index: 2 ; justify-content: center">
+            {% for genre in genres %}
+            <li><a href="{% url 'genre_books' genre.id %}">{{ genre.name }}</a></li>
+            {% endfor %}
+        </ul>
+     {% block content %}
+    {% endblock %}
+<footer style="background-color: #575757; color: white; padding: 30px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>About Us</h5>
+
+          <p style="color:white;"> We are back-end developers</p>
+            <p style="color:wheat;">Zhan Zhaksylyk best teacher </p>
+          <p style="color:lightgoldenrodyellow;">Developers: Aizhan, Eldos, Nurbek, Sultan </p>
+      </div>
+      <div class="col-md-4">
+        <h5>Useful Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="{% url 'home' %} ">Home</a></li>
+          <li><a href="{% url 'cart'%}">Cart</a></li>
+          <li><a href="{% url 'account'%}">Account</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Contact Us</h5>
+        <p style="color:#5bc0de; font-weight: bold; font-size: 3ch;">SDU</p>
+        <p style="color:lightyellow;">Phone: +1 (555) 555-1234</p>
+        <p style="color:white;">Email: sdu@bookstore.com</p>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-3">
+    <p>&copy; 2023 Book Store. All rights reserved.</p>
+  </div>
+</footer>
+
+
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+var icon = document.querySelector('.genres-list');
+
+window.addEventListener('scroll', function() {
+  if (window.pageYOffset > 0) {
+    icon.classList.add('scroll-down');
+  } else {
+    icon.classList.remove('scroll-down');
+  }
+});
+
+</script>
+</body>
+</html></title>
+</head>
+<body>
+
+</body>
+</html>
+
+

@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <title>Cart</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {margin-top: 120px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+
+        .cart-item .title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+
+        .cart-item .delete-link {
+            color: #f00;
+            text-decoration: none;
+        }
+
+        .cart-item .delete-link:hover {
+            text-decoration: underline;
+        }
+
+        .total-amount {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .payment-form {
+            margin-top: 20px;
+            margin-bottom: 100px;
+        }
+
+        .payment-form button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .payment-form button:hover {
+            background-color: #0062cc;
+        }
+
+        footer {
+
+            
+            width: 100vh;
+
+            position: relative;
+
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+        }
+    </style>
+</head>
+<body style="margin: auto;width: 50%">
+
+<h1 style="color: #56205a;">Cart </h1>
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <ul class="cart-items">
+        {% for order in orders %}
+        <li class="cart-item">
+            <div class="title">{{ order.book.title }}</div>
+            <div class="price" style="color: limegreen; font-weight: bold;">${{ order.price }}</div>
+            <a href="{% url 'delete_order' order.id %}" class="delete-link">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <p class="total-amount">Total Amount: ${{ total_amount }}</p>
+    <form method="POST" action="{% url 'make_payment' %}" class="payment-form">
+        {% csrf_token %}
+        <button type="submit" style="margin-bottom: 0%;">Make Payment</button>
+    </form>
+
+
+
+    
+
+</body>
+{% endblock content %}

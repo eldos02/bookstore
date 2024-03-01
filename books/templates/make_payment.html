@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Make Payment</title>
+</head>
+<body>
+    <h1>Make Payment</h1>
+    <form method="POST" action="{% url 'make_payment' %}">
+        {% csrf_token %}
+        <!-- Add payment form fields here -->
+        <button type="submit">Submit Payment</button>
+    </form>
+</body>
+</html>
